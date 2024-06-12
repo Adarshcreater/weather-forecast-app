@@ -31,7 +31,9 @@ To run the app locally:
 2. Install dependencies: `npm install`.
 3. Start the development server: `npm start`.
 
-## License
+## Git Hub 
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+Link for the project Details [project Link](https://github.com/Adarshcreater/weather-forecast-app/releases/tag/v3.4.2)
+
+
 
