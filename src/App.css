@@ -61,6 +61,7 @@ input {
   border: 1px solid #00796b;
   border-radius: 4px;
   width: calc(100% - 100px); /* Adjust width to fit the button */
+  box-sizing: border-box; /* Ensure proper sizing */
 }
 
 button {
