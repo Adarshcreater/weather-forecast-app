@@ -1,89 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="A weather forecasting app built with React" />
-    <meta name="keywords" content="weather, forecast, react, app" />
-    <meta name="author" content="Your Name" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Weather Forecast App</title>
-    <style>
-      body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('/background.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-      }
-      #root {
-        width: 100%;
-        max-width: 1200px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 8px;
-      }
-      h1 {
-        color: #00796b;
-      }
-      .current-weather, .forecast, .search {
-        margin: 20px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #ffffff;
-        max-width: 600px;
-        transition: transform 0.3s ease-in-out;
-      }
-      .forecast-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-      }
-      .forecast-day {
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        background-color: #e0f7fa;
-        margin: 10px;
-        transition: transform 0.3s ease-in-out;
-      }
-      input {
-        padding: 10px;
-        margin-right: 10px;
-        border: 1px solid #00796b;
-        border-radius: 4px;
-      }
-      button {
-        padding: 10px;
-        background-color: #00796b;
-        color: #ffffff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-      }
-      button:hover {
-        background-color: #004d40;
-      }
-      .current-weather:hover, .forecast-day:hover {
-        transform: scale(1.05);
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="A weather forecasting app built with React" />
+  <meta name="keywords" content="weather, forecast, react, app" />
+  <meta name="author" content="Your Name" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+  <title>Weather Forecast App</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #2193b0, #6dd5ed);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    #root {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      overflow: auto;
+    }
+    h1 {
+      color: #00796b;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+    }
+    .current-weather, .forecast, .search {
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #ffffff;
+      max-width: 600px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .current-weather:hover, .forecast-day:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .forecast-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .forecast-day {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #e0f7fa;
+      margin: 10px;
+      width: 120px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .forecast-day:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    input {
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #00796b;
+      border-radius: 4px;
+      width: 70%;
+    }
+    button {
+      padding: 10px;
+      background-color: #00796b;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+    .icon {
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
 </html>

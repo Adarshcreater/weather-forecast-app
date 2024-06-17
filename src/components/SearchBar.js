@@ -1,28 +1,28 @@
-// src/components/SearchBar.js
 import React, { useState } from 'react';
 
-const SearchBar = ({ onSearch }) => {
-  const [searchCity, setSearchCity] = useState('');
+const SearchBar = ({ setCity }) => {
+  const [input, setInput] = useState('');
 
-  const handleChange = (e) => {
-    setSearchCity(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(searchCity);
+    if (input.trim()) {
+      setCity(input);
+      setInput('');
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search">
-      <input
-        type="text"
-        value={searchCity}
-        onChange={handleChange}
-        placeholder="Enter city name"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className="search">
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter city name"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   );
 };
 

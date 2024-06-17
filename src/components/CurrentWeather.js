@@ -1,12 +1,19 @@
-// src/components/CurrentWeather.js
 import React from 'react';
 
-const CurrentWeather = ({ data }) => {
+const CurrentWeather = ({ weather }) => {
+  const { main, weather: weatherDetails, name } = weather;
+  const weatherIcon = `wi wi-owm-${weatherDetails[0].id}`;
+
   return (
     <div className="current-weather">
-      <h2>{data.name}</h2>
-      <p>{data.weather[0].description}</p>
-      <p>{Math.round(data.main.temp - 273.15)}°C</p>
+      <h2>{name}</h2>
+      <div className="icon">
+        <i className={weatherIcon}></i>
+      </div>
+      <p>{weatherDetails[0].description}</p>
+      <p>Temperature: {main.temp}°C</p>
+      <p>Humidity: {main.humidity}%</p>
+      <p>Pressure: {main.pressure} hPa</p>
     </div>
   );
 };
